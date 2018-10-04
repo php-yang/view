@@ -38,7 +38,7 @@ class Html extends View
     public function __construct($template, array $variables = array())
     {
         if (!is_file($template)) {
-            throw new InvalidArgumentException('Invalid template file.');
+            throw new InvalidArgumentException('Invalid template file: ' . $template);
         }
 
         $this->template = $template;
