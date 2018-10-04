@@ -16,7 +16,7 @@ class Xml extends View
     /**
      * @var string
      */
-    protected $template;
+    protected $template = '<xml>{{content}}</xml>';
 
     /**
      * @var array|object
@@ -31,11 +31,14 @@ class Xml extends View
     /**
      * Xml constructor.
      * @param array|object $content
-     * @param string $template placeholder: {{content}} will be replace to xlm content
+     * @param null|string $template placeholder: {{content}} will be replace to xlm content
      */
-    public function __construct($content, $template = '<xml>{{content}}</xml>')
+    public function __construct($content, $template = null)
     {
-        $this->template = $template;
+        if (null !== $template) {
+            $this->template = $template;
+        }
+
         $this->content = $content;
     }
 
