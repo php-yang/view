@@ -35,7 +35,7 @@ class Json extends View
     /**
      * @return string
      */
-    public function __toString()
+    public function render()
     {
         if (null === $this->cached) {
             $this->cached = json_encode($this->content);

@@ -9,7 +9,7 @@
     ],
     "homepage": "http://github.com/php-yang/view",
     "require": {
-        "php": ">=5.3"
+        "php": ">=5.5"
     },
     "suggest": {
         "ext-json": "*"

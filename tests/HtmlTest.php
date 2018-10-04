@@ -48,6 +48,6 @@ class HtmlTest extends TestCase
 
     public function testToString()
     {
-        $this->assertEquals('<span>' . $this->variables['name'] . '</span>', $this->view);
+        $this->assertEquals('<span>' . $this->variables['name'] . '</span>', $this->view->render());
     }
 }

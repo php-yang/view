@@ -58,6 +58,6 @@ class XmlTest extends TestCase
             $xml .= "<{$key}>{$value}</{$key}>";
         }
 
-        $this->assertEquals(str_replace('{{content}}', $xml, $this->template), $this->view);
+        $this->assertEquals(str_replace('{{content}}', $xml, $this->template), $this->view->render());
     }
 }

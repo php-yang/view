@@ -48,6 +48,6 @@ class JsonTest extends TestCase
 
     public function testToString()
     {
-        $this->assertEquals(json_encode($this->content), $this->view);
+        $this->assertEquals(json_encode($this->content), $this->view->render());
     }
 }

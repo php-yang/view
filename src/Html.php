@@ -48,16 +48,23 @@ class Html extends View
     /**
      * @return string
      */
-    public function __toString()
+    public function render()
     {
         if (null === $this->cached) {
-            ob_start();
+            function _() {
+                ob_start();
 
-            extract($this->variables);
-            include $this->template;
-            $this->cached = ob_get_contents();
+                extract(yield);
+                include yield;
+                yield ob_get_contents();
 
-            ob_end_clean();
+                ob_end_clean();
+            };
+
+            $render = _();
+            $render->send($this->variables);
+            $this->cached = $render->send($this->template);
+            $render->next();
         }
 
         return $this->cached;

@@ -34,8 +34,13 @@ abstract class View
         return $this->contentType;
     }
 
+    public function __toString()
+    {
+        return $this->render();
+    }
+
     /**
      * @return string
      */
-    abstract public function __toString();
+    abstract public function render();
 }

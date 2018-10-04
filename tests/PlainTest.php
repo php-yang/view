@@ -48,6 +48,6 @@ class PlainTest extends TestCase
 
     public function testToString()
     {
-        $this->assertEquals($this->content, $this->view);
+        $this->assertEquals($this->content, $this->view->render());
     }
 }

@@ -50,6 +50,6 @@ class DebugTest extends TestCase
     {
         $template = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Debug Page</title></head><body><pre>{{content}}</pre></body></html>';
 
-        $this->assertEquals(str_replace('{{content}}', var_export($this->content, true), $template), $this->view);
+        $this->assertEquals(str_replace('{{content}}', var_export($this->content, true), $template), $this->view->render());
     }
 }

@@ -45,7 +45,7 @@ class Xml extends View
     /**
      * @return string
      */
-    public function __toString()
+    public function render()
     {
         if (null === $this->cached) {
             $this->cached = str_replace('{{content}}', $this->buildXml($this->content), $this->template);

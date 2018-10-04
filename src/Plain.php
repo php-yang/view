@@ -46,7 +46,7 @@ class Plain extends View
     /**
      * @return string
      */
-    public function __toString()
+    public function render()
     {
         return $this->cached;
     }
