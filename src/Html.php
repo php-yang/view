@@ -53,11 +53,8 @@ class Html extends View
         if (null === $this->cached) {
             function _() {
                 ob_start();
-
-                extract(yield);
-                include yield;
+                include yield extract(yield);
                 yield ob_get_contents();
-
                 ob_end_clean();
             };
 
