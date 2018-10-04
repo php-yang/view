@@ -55,8 +55,9 @@ class Html extends View
 
             extract($this->variables);
             include $this->template;
+            $this->cached = ob_get_contents();
 
-            $this->cached = ob_get_clean();
+            ob_end_clean();
         }
 
         return $this->cached;
