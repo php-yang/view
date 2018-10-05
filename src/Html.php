@@ -51,7 +51,8 @@ class Html extends View
     public function render()
     {
         if (null === $this->cached) {
-            function _() {
+            function _()
+            {
                 ob_start();
                 try {
                     include yield extract(yield);
@@ -59,7 +60,7 @@ class Html extends View
                 } finally {
                     ob_end_clean();
                 }
-            };
+            }
 
             $render = _();
             $render->send($this->variables);
