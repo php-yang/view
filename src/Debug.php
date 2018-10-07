@@ -48,9 +48,23 @@ class Debug extends View
     public function render()
     {
         if (null === $this->cached) {
-            $this->cached = str_replace('{{content}}', var_export($this->content, true), $this->template);
+            $this->cached = str_replace('{{content}}', $this->dump($this->content), $this->template);
         }
 
         return $this->cached;
+    }
+
+    /**
+     * @param mixed $variable
+     * @return string
+     */
+    public function dump($variable)
+    {
+        ob_start();
+        var_dump($variable);
+        $content = ob_get_contents();
+        ob_end_clean();
+
+        return $content;
     }
 }

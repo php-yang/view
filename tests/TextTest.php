@@ -3,16 +3,16 @@
 namespace Yang\View\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Yang\View\Debug;
+use Yang\View\Text;
 
 /**
- * Class DebugTest
+ * Class TextTest
  * @package Yang\View\Tests
  */
-class DebugTest extends TestCase
+class TextTest extends TestCase
 {
     /**
-     * @var Debug
+     * @var Text
      */
     protected $view;
 
@@ -23,8 +23,8 @@ class DebugTest extends TestCase
 
     public function setUp()
     {
-        $this->content = array('key' => 'value');
-        $this->view = new Debug($this->content);
+        $this->content = 'Hello world!';
+        $this->view = new Text($this->content);
 
         parent::setUp();
     }
@@ -48,8 +48,6 @@ class DebugTest extends TestCase
 
     public function testToString()
     {
-        $template = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Debug Page</title></head><body><pre>{{content}}</pre></body></html>';
-
-        $this->assertEquals(str_replace('{{content}}', $this->view->dump($this->content), $template), $this->view->render());
+        $this->assertEquals($this->content, $this->view->render());
     }
 }

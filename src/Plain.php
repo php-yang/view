@@ -24,23 +24,7 @@ class Plain extends View
      */
     public function __construct($content)
     {
-        $this->cached = $content;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCharset()
-    {
-        return $this->charset;
-    }
-
-    /**
-     * @return string
-     */
-    public function getContentType()
-    {
-        return $this->contentType;
+        $this->cached = (string)$content;
     }
 
     /**
