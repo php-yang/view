@@ -16,7 +16,7 @@ abstract class View
     /**
      * @var string
      */
-    protected $contentType = 'text/plain';
+    protected $contentType = 'text/html';
 
     /**
      * @return string

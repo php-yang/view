@@ -11,11 +11,6 @@ class Debug extends View
     /**
      * @var string
      */
-    protected $contentType = 'text/html';
-
-    /**
-     * @var string
-     */
     protected $template = '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Debug Page</title></head><body><pre>{{content}}</pre></body></html>';
 
     /**

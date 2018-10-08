@@ -3,35 +3,35 @@
 namespace Yang\View\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Yang\View\Text;
+use Yang\View\Template;
 
 /**
- * Class TextTest
+ * Class TemplateTest
  * @package Yang\View\Tests
  */
-class TextTest extends TestCase
+class TemplateTest extends TestCase
 {
     /**
-     * @var Text
+     * @var Template
      */
     protected $view;
 
     /**
-     * @var mixed
+     * @var array
      */
-    protected $content;
+    protected $variables;
 
     public function setUp()
     {
-        $this->content = 'Hello world!';
-        $this->view = new Text($this->content);
+        $this->variables = array('name' => 'pengzhile', 'age' => 100);
+        $this->view = new Template(__DIR__ . '/resources/template.phtml', $this->variables);
 
         parent::setUp();
     }
 
     public function tearDown()
     {
-        unset($this->content, $this->view);
+        unset($this->variables, $this->view);
 
         parent::tearDown();
     }
@@ -48,6 +48,6 @@ class TextTest extends TestCase
 
     public function testToString()
     {
-        $this->assertEquals($this->content, $this->view->render());
+        $this->assertEquals('<span>' . $this->variables['name'] . '</span>', $this->view->render());
     }
 }

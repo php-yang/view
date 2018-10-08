@@ -17,21 +17,21 @@ class HtmlTest extends TestCase
     protected $view;
 
     /**
-     * @var array
+     * @var mixed
      */
-    protected $variables;
+    protected $content;
 
     public function setUp()
     {
-        $this->variables = array('name' => 'pengzhile', 'age' => 100);
-        $this->view = new Html(__DIR__ . '/resources/template.phtml', $this->variables);
+        $this->content = 'Hello world!';
+        $this->view = new Html($this->content);
 
         parent::setUp();
     }
 
     public function tearDown()
     {
-        unset($this->variables, $this->view);
+        unset($this->content, $this->view);
 
         parent::tearDown();
     }
@@ -48,6 +48,6 @@ class HtmlTest extends TestCase
 
     public function testToString()
     {
-        $this->assertEquals('<span>' . $this->variables['name'] . '</span>', $this->view->render());
+        $this->assertEquals($this->content, $this->view->render());
     }
 }
