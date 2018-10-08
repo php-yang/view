@@ -28,7 +28,10 @@
     "autoload": {
         "psr-4": {
             "Yang\\View\\": "src/"
-        }
+        },
+        "files": [
+            "src/Helpers/functions.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

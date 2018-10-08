@@ -51,18 +51,7 @@ class Html extends View
     public function render()
     {
         if (null === $this->cached) {
-            function _()
-            {
-                ob_start();
-                try {
-                    include yield extract(yield);
-                    yield ob_get_contents();
-                } finally {
-                    ob_end_clean();
-                }
-            }
-
-            $render = _();
+            $render = render_include();
             $render->send($this->variables);
             $this->cached = $render->send($this->template);
             $render->next();
